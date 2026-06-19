@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video Downloader (Backend-enabled)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Video Downloader</h1>
+    <p class="subtitle">
+      Paste a video link and download it using the backend endpoint
+      <code>/api/download</code>.
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Paste your video URL</h2>
+
+      <div class="field">
+        <label for="site">Select site</label>
+        <select id="site">
+          <option value="youtube">YouTube</option>
+          <option value="tiktok">TikTok</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="x">X (Twitter)</option>
+          <option value="other" selected>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="url">Video URL</label>
+        <input
+          id="url"
+          type="url"
+          placeholder="https://example.com/video/..."
+          autocomplete="off"
+          required
+        />
+        <small id="hint" class="hint">
+          Tip: paste the full link (including https://).
+        </small>
+      </div>
+
+      <div class="actions">
+        <button id="downloadBtn" class="primary" type="button">Download</button>
+        <button id="clearBtn" class="ghost" type="button">Clear</button>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Notes</h2>
+      <ul class="bullets">
+        <li>Real downloads require server-side processing (backend).</li>
+        <li>The backend uses <code>yt-dlp</code> to generate the downloadable file.</li>
+      </ul>
+      <div class="note">
+        If a download fails, check backend logs for <code>yt-dlp</code> errors.
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p class="footer">Static UI + backend downloader endpoint.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
