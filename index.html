@@ -3,82 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Video Downloader (Static UI)</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Video Downloader</title>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: #0b1220; color: #e7eefc; }
+    .wrap { height: 100%; display: grid; place-items: center; padding: 16px; }
+    iframe { width: 100%; height: 100%; border: 0; border-radius: 16px; background: #0f1b33; }
+  </style>
 </head>
 <body>
-  <header class="container">
-    <h1>Video Downloader</h1>
-    <p class="subtitle">
-      Static website UI for selecting a site and submitting a video link.
-      <strong>Actual downloading requires a server-side downloader.</strong>
-    </p>
-  </header>
-
-  <main class="container">
-    <section class="card">
-      <h2>1) Paste your video URL</h2>
-
-      <div class="field">
-        <label for="site">Select site</label>
-        <select id="site">
-          <option value="youtube">YouTube</option>
-          <option value="tiktok">TikTok</option>
-          <option value="instagram">Instagram</option>
-          <option value="facebook">Facebook</option>
-          <option value="x">X (Twitter)</option>
-          <option value="other" selected>Other</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="url">Video URL</label>
-        <input
-          id="url"
-          type="url"
-          placeholder="https://example.com/video/..."
-          autocomplete="off"
-          required
-        />
-        <small id="hint" class="hint">
-          Tip: paste the full link (including https://).
-        </small>
-      </div>
-
-      <div class="actions">
-        <button id="downloadBtn" class="primary" type="button">Download</button>
-        <button id="clearBtn" class="ghost" type="button">Clear</button>
-      </div>
-
-      <div id="status" class="status" role="status" aria-live="polite"></div>
-    </section>
-
-    <section class="card">
-      <h2>How this works (important)</h2>
-      <ul class="bullets">
-        <li>This page is <strong>static</strong> (HTML/CSS/JS only).</li>
-        <li>
-          Most video sites block direct downloading from browsers (CORS/anti-bot) and also require
-          server-side logic.
-        </li>
-        <li>
-          To enable real downloads, configure a backend endpoint (example: <code>/api/download</code>)
-          that returns a downloadable file URL.
-        </li>
-      </ul>
-      <div class="note">
-        <strong>Current behavior:</strong> validates the link and shows what would be sent to the
-        backend.
-      </div>
-    </section>
-  </main>
-
-  <footer class="container">
-    <p class="footer">
-      Built as a simple static website UI. Add a backend downloader service to make downloads work.
-    </p>
-  </footer>
-
-  <script src="./app.js"></script>
+  <div class="wrap">
+    <iframe src="/video-downloader-site/index.html" title="Video Downloader"></iframe>
+  </div>
 </body>
 </html>
